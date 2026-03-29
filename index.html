@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miguela Fernandes | Digital Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+        
+        :root {
+            --pastel-pink: #FDF2F8;
+            --pastel-blue: #E0F2FE;
+            --pastel-purple: #F3E8FF;
+        }
+
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .header-blue { background-color: var(--pastel-blue); }
+        .header-pink { background-color: var(--pastel-pink); }
+        
+        .section-hidden { display: none; }
+        
+        .glass-card {
+            background: white;
+            border: 1px solid #f1f5f9;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-radius: 2.5rem;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.08);
+        }
+
+        .module-card {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 1.25rem;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-card:hover {
+            border-color: #bae6fd;
+            background-color: #f0f9ff;
+            transform: translateX(5px);
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-white flex flex-col min-h-screen selection:bg-purple-100 text-slate-800">
+
+    <!-- Header Azul -->
+    <header class="header-blue py-4 border-b border-sky-100 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 flex justify-between items-center">
+            <button onclick="showSection('home')" class="font-serif italic text-slate-700 text-xl tracking-wide">
+                Miguela Fernandes
+            </button>
+            <nav class="hidden md:flex space-x-8 text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">
+                <button onclick="showSection('edu')" class="hover:text-purple-500 transition-colors">Educação</button>
+                <button onclick="showSection('yoga')" class="hover:text-purple-500 transition-colors">Yoga</button>
+                <button onclick="showSection('atelier')" class="hover:text-purple-500 transition-colors">Atelier</button>
+                <button onclick="showSection('books')" class="hover:text-purple-500 transition-colors">Livros</button>
+                <button onclick="showSection('mixed')" class="hover:text-purple-500 transition-colors">Mixed Media</button>
+            </nav>
+            <button class="md:hidden text-slate-600"><i class="fas fa-bars text-xl"></i></button>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+
+        <!-- HOME -->
+        <section id="home" class="content-section">
+            <div class="header-pink py-20 px-6">
+                <div class="max-w-4xl mx-auto md:text-right">
+                    <h1 class="font-serif text-4xl md:text-6xl text-slate-700 mb-8 animate-fade-in uppercase tracking-tight">Miguela Fernandes</h1>
+                    <div class="space-y-4 text-slate-600 leading-relaxed text-sm md:text-base max-w-2xl ml-auto animate-fade-in" style="animation-delay: 0.2s">
+                        <p class="font-semibold italic text-slate-500 uppercase tracking-widest text-xs">Mãe • Educadora • Criativa</p>
+                        <p>Sou professora de Informática com mais de 29 anos a iluminar caminhos na educação. Trago a essência do ensino no coração e a paixão pela criatividade em cada projeto que abraço.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="max-w-6xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Cards Iniciais -->
+                <div onclick="showSection('edu')" class="glass-card p-10 cursor-pointer bg-sky-50/20 hover:bg-sky-50 transition-colors flex flex-col justify-between h-[300px]">
+                    <div>
+                        <i class="fas fa-graduation-cap text-sky-400 text-2xl mb-6"></i>
+                        <h2 class="font-serif text-3xl text-slate-700">Educação</h2>
+                        <p class="text-slate-400 text-[10px] uppercase tracking-widest font-bold mt-2">Cisco Academy</p>
+                    </div>
+                    <p class="text-slate-500 text-sm">Acede aos módulos de Redes e materiais pedagógicos.</p>
+                </div>
+
+                <div onclick="showSection('yoga')" class="glass-card p-10 cursor-pointer bg-pink-50/20 hover:bg-pink-50 transition-colors flex flex-col justify-between h-[300px]">
+                    <div>
+                        <i class="fas fa-spa text-pink-400 text-2xl mb-6"></i>
+                        <h2 class="font-serif text-3xl text-slate-700">Yoga</h2>
+                        <p class="text-slate-400 text-[10px] uppercase tracking-widest font-bold mt-2">Bem-estar</p>
+                    </div>
+                    <p class="text-slate-500 text-sm">Pausas conscientes para o equilíbrio diário.</p>
+                </div>
+
+                <div onclick="showSection('atelier')" class="glass-card p-10 cursor-pointer bg-purple-50/20 hover:bg-purple-50 transition-colors flex flex-col justify-between h-[300px]">
+                    <div>
+                        <i class="fas fa-tools text-purple-400 text-2xl mb-6"></i>
+                        <h2 class="font-serif text-3xl text-slate-700">Atelier</h2>
+                        <p class="text-slate-400 text-[10px] uppercase tracking-widest font-bold mt-2">Manualidades</p>
+                    </div>
+                    <p class="text-slate-500 text-sm">Espaço de criação e projetos "mãos na massa".</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCAÇÃO (MÓDULOS CISCO) -->
+        <section id="edu" class="content-section section-hidden animate-fade-in max-w-6xl mx-auto py-20 px-6">
+            <button onclick="showSection('home')" class="text-slate-400 hover:text-purple-500 mb-12 flex items-center gap-2 text-[10px] uppercase tracking-widest font-bold">
+                <i class="fas fa-long-arrow-alt-left text-lg"></i> Voltar ao Hub
+            </button>
+            
+            <header class="mb-12">
+                <h2 class="font-serif text-5xl text-slate-700 mb-4">Cisco Networking Academy</h2>
+                <p class="text-slate-500">Módulos de aprendizagem para Informática e Redes.</p>
+            </header>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <!-- Módulos 1 a 9 -->
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">01</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Networking Today</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">02</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Basic Switch and Device Config</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">03</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Protocols and Models</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">04</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Physical Layer</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">06</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Data Link Layer</h4>
+                </div>
+                <!-- Módulo 7 com Link Especial -->
+                <a href="redes/index.html" class="module-card border-blue-200 bg-blue-50/50 hover:bg-blue-100 transition-all">
+                    <span class="text-xs font-bold text-blue-600 w-6">07</span>
+                    <h4 class="font-bold text-blue-800 text-sm flex-grow">Ethernet Switching (Aula Interativa)</h4>
+                    <i class="fas fa-play-circle text-blue-600"></i>
+                </a>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">08</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Network Layer</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">09</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Address Resolution</h4>
+                </div>
+                <!-- Módulos 10 a 17 -->
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">10</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Basic Router Configuration</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">11</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">IPv4 Addressing</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">12</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">IPv6 Addressing</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">13</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">ICMP</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">14</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Transport Layer</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">15</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Application Layer</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">16</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Network Security Fundamentals</h4>
+                </div>
+                <div class="module-card">
+                    <span class="text-xs font-bold text-sky-400 w-6">17</span>
+                    <h4 class="font-semibold text-slate-700 text-sm flex-grow">Build a Small Network</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECÇÕES PLACEHOLDERS -->
+        <section id="yoga" class="content-section section-hidden max-w-4xl mx-auto py-24 px-6 text-center">
+            <button onclick="showSection('home')" class="text-slate-400 mb-8 block mx-auto text-[10px] uppercase font-bold tracking-widest">Voltar</button>
+            <h2 class="font-serif text-5xl text-slate-700 mb-4">Yoga</h2>
+            <p class="text-slate-400 italic">Espaço dedicado à serenidade.</p>
+        </section>
+
+        <section id="atelier" class="content-section section-hidden max-w-4xl mx-auto py-24 px-6 text-center">
+            <button onclick="showSection('home')" class="text-slate-400 mb-8 block mx-auto text-[10px] uppercase font-bold tracking-widest">Voltar</button>
+            <h2 class="font-serif text-5xl text-slate-700 mb-4">O Atelier</h2>
+            <p class="text-slate-400 italic">Manualidades e projetos manuais.</p>
+        </section>
+
+        <section id="books" class="content-section section-hidden max-w-4xl mx-auto py-24 px-6 text-center">
+            <button onclick="showSection('home')" class="text-slate-400 mb-8 block mx-auto text-[10px] uppercase font-bold tracking-widest">Voltar</button>
+            <h2 class="font-serif text-5xl text-slate-700 mb-4">Livros</h2>
+            <p class="text-slate-400 italic">Notas de leitura.</p>
+        </section>
+
+        <section id="mixed" class="content-section section-hidden max-w-4xl mx-auto py-24 px-6 text-center">
+            <button onclick="showSection('home')" class="text-slate-400 mb-8 block mx-auto text-[10px] uppercase font-bold tracking-widest">Voltar</button>
+            <h2 class="font-serif text-5xl text-slate-700 mb-4">Mixed Media</h2>
+            <p class="text-slate-400 italic">Galeria visual.</p>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-50 border-t border-slate-100 py-16 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 text-center md:text-left">
+            <div>
+                <p class="font-serif italic text-slate-700 text-2xl">Miguela Fernandes</p>
+                <p class="text-[9px] text-slate-400 uppercase tracking-[0.3em] font-bold mt-2">Educação • Yoga • Criatividade</p>
+            </div>
+            <div class="flex space-x-10 text-slate-300 text-2xl">
+                <a href="#" class="hover:text-pink-400 transition-colors"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-sky-400 transition-colors"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:geral@miguelafernandes.eu" class="hover:text-purple-400 transition-colors"><i class="far fa-envelope"></i></a>
+            </div>
+            <div class="text-[10px] text-slate-400 uppercase tracking-widest">
+                © 2024 • miguelafernandes.eu
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.add('section-hidden'));
+            const target = document.getElementById(id);
+            if(target) {
+                target.classList.remove('section-hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    </script>
+</body>
+</html>
